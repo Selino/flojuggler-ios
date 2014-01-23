@@ -1,0 +1,102 @@
+/* CSS Document */
+
+.red {
+    color: #EA1D23;
+}
+
+a {
+    color: white;
+}
+
+.ui-input-text, .ui-input-text input {
+    padding: 0;
+    margin: 0;
+}
+
+input#name {
+    font-size: 1.3em;
+}
+
+.ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset,
+.ui-shadow-inset.ui-body-inherit.ui-corner-all.ui-slider-input {
+    box-shadow: none;
+    border: none;
+    padding: none;
+}
+
+.status-red {
+	color: white !important;
+    background-color: #EA1D23 !important;
+}
+
+.status-green {
+	color: #333 !important;
+}
+
+.status-yellow {
+	color: #333 !important;
+    background-color: #FFE699 !important;
+}
+
+.status-text {
+	font-size: .6em;
+	margin-left: 4px;
+    position: absolute;
+    bottom: 22px;
+    left: 74px;
+    font-weight: normal;
+}
+
+.name-title {
+    position: absolute;
+    top: 24px;
+    left: 76px;
+}
+
+.no-flo {
+    text-align: center;
+    margin-top: 10%;
+    color: #999;
+}
+
+img.thumbnail-button, img.thumbnail {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background-color: #999;
+}
+
+img.thumbnail {
+    vertical-align: middle;
+    margin-right: .4em;
+    border: solid 4px #999;
+}
+
+.ui-header {
+    border-bottom: solid 1px #E5E5E5 !important;
+    border-top: none;
+    background-color: #fff !important;
+}
+
+.edit-button {
+    text-align: left;
+    font-size: 24px;
+    text-shadow: none !important;
+    border: none;
+    border-bottom: solid 1px #E5E5E5;
+    padding-left: .4em;
+    margin: 0;
+    border-radius: 0 !important;
+}
+
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+    background: white;
+    border-color: #bbb;
+    color: #333;
+    text-shadow: 0 1px 0 #f3f3f3;
+}
+
+
+.ui-content-no-padding {
+    padding: 0;
+}
