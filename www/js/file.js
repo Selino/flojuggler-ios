@@ -12,9 +12,8 @@ function gotImageURI(fileEntry) {
 }
 
 function movedImageSuccess(fileEntry) {
-    var myTime = new Date();
-    myTime = myTime.getTime();
-    var newPath = fileEntry.fullPath + "?localtime=" + myTime;
+    var myNow = new Date().getTime();
+    var newPath = fileEntry.fullPath + "?localtime=" + myNow;
     updateImageSrc(newPath);
 }
 
