@@ -22,6 +22,14 @@ function updateCameraImages(imageURI) {
     window.resolveLocalFileSystemURI(imageURI, gotImageURI, errorHandler);
 }
 
+function removeDeletedImage(imageURI){
+    window.resolveLocalFileSystemURI(imageURI, removeFile, errorHandler);
+}
+
+function removeFile(fileEntry){
+    fileEntry.remove();
+}
+
 function errorHandler(e) {
     var msg = '';
     switch (e.code) {
@@ -41,7 +49,7 @@ function errorHandler(e) {
             msg = 'INVALID_STATE_ERR';
             break;
         default:
-            msg = 'Unknown Error';
+            msg = e.code;
             break;
     };
     console.log('Error: ' + msg);

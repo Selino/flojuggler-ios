@@ -10,6 +10,7 @@ $("#edit-page").on('pageinit', function (evt) {
                          });;
 
 $("#delete-button").on('click', function() {
+                       deleteFloThumbnail();
                        Flos.deleteFlo(gCurrentFlo);
                        $.mobile.changePage( '#list-page');
                        });
@@ -28,6 +29,14 @@ $("#add-flo-btn").on('click', function() {
                      createNewFlo();
                      });
 
+function deleteFloThumbnail(){
+    var sThumbnailPath = $('#thumbnail').val();
+    
+    if (sThumbnailPath != 'images/thumbnail.svg') {
+        sThumbnailPath = 'file://' + sThumbnailPath.slice(0, - 24);
+        removeDeletedImage(sThumbnailPath);
+    }
+}
 
 function displayInsertResult(tx, rs){
     gCurrentFlo = rs.insertId;
@@ -101,7 +110,6 @@ function displayResultSet(){
             " <span class='status-text'>is "+ myFloStatus.text +"</span></a>";
             
             myPredictOutput += '<label><input type="radio" name="predictItem" id="pred-item-' + i + '" value="' + i + '" checked>' + row.name + '</label>';
-            
         }
     } else {
         myOutput = "<div class='no-flo' data-shadow='false'>You're not tracking any flos at this time.</div>";
