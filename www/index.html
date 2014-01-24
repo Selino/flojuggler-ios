@@ -30,7 +30,7 @@
     <body>
         <!-- list page -->
         <div data-role="page" id="list-page" data-shadow="false">
-            <div data-id="header" data-role="header">
+            <div data-id="header" data-role="header" data-position="fixed">
                 <a id="add-flo-btn" href="#edit-page" data-iconpos="notext" data-role="button" data-shadow="false" data-icon="plus" data-transition="slideup" data-mini="true">Add</a>
                 <a data-iconpos="notext" href="#predict-page" data-icon="calendar" data-iconpos="notext" data-role="button" data-shadow="false" data-mini="true" data-transition="slideup">Predict</a>
                 <h1><img src='images/logo_v3.svg' width="100" /></h1>
@@ -41,9 +41,9 @@
         </div>
         <!-- edit page -->
         <div data-role="page" id="edit-page">
-            <div data-id="header" data-role="header">
+            <div data-id="header" data-role="header" data-position="fixed">
                 <a id="list-page-button" href="#list-page" data-iconpos="notext" data-role="button" data-icon="bars" data-transition="slide" data-direction="reverse" data-mini="true" data-inline="true" data-shadow="false">Back</a>
-                <a id="delete-button" data-iconpos="notext" data-role="button" data-icon="delete" data-mini="true" data-inline="true" data-shadow="false">Delete</a>
+                <a id="delete-button" href="#list-page" data-iconpos="notext" data-role="button" data-icon="delete" data-mini="true" data-inline="true" data-shadow="false">Delete</a>
                 <h1><img src='images/logo_v3.svg' width="100" /></h1>
             </div>
             <div data-role="content">
