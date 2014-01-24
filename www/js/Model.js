@@ -48,7 +48,7 @@ var Model = {
 	deleteFlo : function(id) {
 		db.transaction(
                        function(tx) {
-                       tx.executeSql("DELETE FROM Flos WHERE id = ?", [id], displayDeleteResult);
+                       tx.executeSql("DELETE FROM Flos WHERE id = ?", [id]);
                        },
                        
                        function(err) {

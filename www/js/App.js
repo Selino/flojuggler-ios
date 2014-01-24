@@ -38,11 +38,6 @@ function createNewFlo(){
     Model.addFlo(myNewFlo);
 }
 
-function displayDeleteResult(){
-    $('#flos-list').html('');
-	$.mobile.changePage( '#list-page');
-}
-
 function populateEditPage(e){
 	var row = globalFlos[e];
 	gCurrentFlo = row.id;
@@ -142,7 +137,7 @@ function secToDays(value) {
     return Math.round(d);
 }
 
-//helpers
+//JQuery helpers
 $.fn.serializeForm = function()
 {
     var o = {};
