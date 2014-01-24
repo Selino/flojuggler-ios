@@ -1,31 +1,20 @@
-$("#list-page").on('pagecreate', function(evt) {
-                   
-                   }).on('pagebeforehide', function(evt){
-                         checkPageStatus();
-                         });
+$("#list-page").on('pagebeforeshow', function(evt) {
+                   makeList();
+                   });
 
 $("#edit-page").on('pageinit', function (evt) {
                    checkNameDateFields();
-                   $('#save-button').on('tap',function() {
-                                        var myNewFlo = $('#edit-form').stringifyForm();
-                                        Model.openDB();
-                                        Model.addFlo(myNewFlo);
-                                        });
-                    }).on('pagebeforehide', function(evt) {
-                         if (gCurrentFlo != 'reset') {
-                              updateEditPage();
-                          }
+                   }).on('pagebeforehide', function(evt) {
+                         updateEditPage();
                          makeList();
-                     }).on('pagebeforeshow', function(evt) {
-                               checkPageStatus();
-                               });
+                         });;
 
-$("#delete-button").on('tap', function() {
+$("#delete-button").on('click', function() {
                        Flos.deleteFlo(gCurrentFlo);
                        $.mobile.changePage( '#list-page');
                        });
 
-$(".thumbnail-button").on('tap', function() {
+$(".thumbnail-button").on('click', function() {
                           getPhoto(pictureSource.PHOTOLIBRARY);
                           });
 
@@ -35,10 +24,20 @@ $("input[type=text]").on("keypress", function(e) {
                          }
                          });
 
+$("#add-flo-btn").on('click', function() {
+                     console.log('add tapped');
+                     createNewFlo();
+                     });
+
 
 function displayInsertResult(tx, rs){
-    $('#flos-list').html('');
-	$.mobile.changePage( '#list-page');
+    gCurrentFlo = rs.insertId;
+    console.log('current flo is: ' + gCurrentFlo);
+}
+
+function createNewFlo(){
+    var myNewFlo = $('#edit-form').stringifyForm();
+    Model.addFlo(myNewFlo);
 }
 
 function displayDeleteResult(){
@@ -49,7 +48,6 @@ function displayDeleteResult(){
 function populateEditPage(e){
 	var row = globalFlos[e];
 	gCurrentFlo = row.id;
-    checkPageStatus();
 	
 	$('#name').val(row.name);
 	$('#cycle').val(row.cycle).trigger('create');
@@ -62,26 +60,19 @@ function populateEditPage(e){
 function updateEditPage() {
 	var myFloEdit = $('#edit-form').stringifyForm();
     Model.updateFlo(myFloEdit);
-    myFloEdit = JSON.parse(myFloEdit);
 }
 
 function makeList(){
 	Model.openDB();
 	Model.getFlos();
+    resetEditPage();
 }
 
-function checkPageStatus(){
-    if (gCurrentFlo != 'reset') {
-        $('#save-button').parent().hide();
-        $('#list-page-button').show();
-    } else {
-        $('#edit-form').resetForm();
-        $('#thumbnail').val('images/thumbnail.svg');
-        $('.thumbnail-button').attr('src','images/thumbnail.svg');
-        $('#save-button').parent().show();
-        $('#list-page-button').hide();
-        $('#startDate').val(new Date().toJSON().slice(0,10));
-    }
+function resetEditPage(){
+    $('#edit-form').resetForm();
+    $('#thumbnail').val('images/thumbnail.svg');
+    $('.thumbnail-button').attr('src','images/thumbnail.svg');
+    $('#startDate').val(new Date().toJSON().slice(0,10));
 }
 
 function checkNameDateFields() {
@@ -124,11 +115,7 @@ function displayResultSet(){
         myPredictOutput = myOutput;
     }
     
-    if (globalFlos.length >= 10) {
-        $('#add-flo-btn').hide();
-    } else {
-        $('#add-flo-btn').show();
-    }
+    checkForMaxFlos();
 	
 	$('#flos-list').html(myOutput).trigger('create');
     $('#predict-list').html(myPredictOutput).trigger('create');
@@ -137,6 +124,14 @@ function displayResultSet(){
                                       $(this).attr('data-id')
                                       );
                          });
+}
+
+function checkForMaxFlos(){
+    if (globalFlos.length >= 10) {
+        $('#add-flo-btn').hide();
+    } else {
+        $('#add-flo-btn').show();
+    }
 }
 
 function updateImageSrc(path) {
