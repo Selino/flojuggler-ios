@@ -25,14 +25,12 @@ $("input[type=text]").on("keypress", function(e) {
                          });
 
 $("#add-flo-btn").on('click', function() {
-                     console.log('add tapped');
                      createNewFlo();
                      });
 
 
 function displayInsertResult(tx, rs){
     gCurrentFlo = rs.insertId;
-    console.log('current flo is: ' + gCurrentFlo);
 }
 
 function createNewFlo(){
