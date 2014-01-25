@@ -120,14 +120,18 @@ function displayResultSet(){
         myPredictOutput = myOutput;
     }
     
+    updateFloListLayout(myOutput,myPredictOutput);
+    
+}
+
+function updateFloListLayout(myOutput,myPredictOutput){
     checkForMaxFlos();
-	
-	$('#flos-list').html(myOutput).trigger('create');
+    $('#flos-list').html(myOutput).trigger('create');
     $('#predict-list').html(myPredictOutput).trigger('create');
 	$('.edit-button').on('tap', function(){
                          populateEditPage(
-                                      $(this).attr('data-id')
-                                      );
+                                          $(this).attr('data-id')
+                                          );
                          });
 }
 
