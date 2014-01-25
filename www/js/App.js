@@ -29,6 +29,10 @@ $("#add-flo-btn").on('click', function() {
                      createNewFlo();
                      });
 
+function onResume() {
+    makeList();
+}
+
 function deleteFloThumbnail(){
     var sThumbnailPath = $('#thumbnail').val();
     

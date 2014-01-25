@@ -39,6 +39,9 @@ var app = {
     receivedEvent: function(id) {
 
         console.log('Received Event: ' + id);
+        
+        document.addEventListener("resume", onResume, false);
+        
         window.plugins.webviewcolor.change('#FFFFFF');
         
         pictureSource=navigator.camera.PictureSourceType;
@@ -46,7 +49,6 @@ var app = {
         
         makeList();
         
-        // request the persistent file system
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, errorHandler);
     }
 };
