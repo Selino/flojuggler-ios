@@ -60,7 +60,7 @@ function populateEditPage(e){
 	$('#long').val(row.long).trigger('create');
 	$('#startDate').val(row.startDate);
     $('#thumbnail').val(row.thumbnail);
-    $('.thumbnail-button').attr('src',row.thumbnail);
+    $('.thumbnail-button').attr('src',row.thumbnail).nocacheImg();
 }
 
 function updateEditPage() {
@@ -131,6 +131,7 @@ function updateFloListLayout(myOutput,myPredictOutput){
                                           $(this).attr('data-id')
                                           );
                          });
+    $('.thumbnail').nocacheImg();
 }
 
 function checkForMaxFlos(){
@@ -143,7 +144,7 @@ function checkForMaxFlos(){
 
 function updateImageSrc(path) {
     $('#thumbnail').val(path);
-    $('.thumbnail-button').attr('src',path);
+    $('.thumbnail-button').attr('src',path).nocacheImg();
 }
 
 function secToDays(value) {
@@ -152,28 +153,36 @@ function secToDays(value) {
 }
 
 //JQuery helpers
-$.fn.serializeForm = function()
-{
-    var o = {};
-    var a = this.serializeArray();
-    $.each(a, function() {
-           if (o[this.name] !== undefined) {
-           if (!o[this.name].push) {
-           o[this.name] = [o[this.name]];
-           }
-           o[this.name].push(this.value || '');
-           } else {
-           o[this.name] = this.value || '';
-           }
-           });
-    return o;
-};
-
-$.fn.stringifyForm = function(){
-	var myData = JSON.stringify(this.serializeForm())
-	return myData;
-}
-
-$.fn.resetForm = function(e){
-	this[0].reset();
-}
+$.fn.extend({
+    nocacheImg : function(){
+        return this.each(function(){
+                         var myNow = new Date().getTime();
+                         this.src = this.src + "?localtime=" + myNow;
+                         });
+    },
+            
+    resetForm : function(){
+            this[0].reset();
+    },
+            
+    stringifyForm : function(){
+        var myData = JSON.stringify(this.serializeForm())
+        return myData;
+    },
+    
+    serializeForm : function(){
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function() {
+                   if (o[this.name] !== undefined) {
+                   if (!o[this.name].push) {
+                   o[this.name] = [o[this.name]];
+                   }
+                   o[this.name].push(this.value || '');
+                   } else {
+                   o[this.name] = this.value || '';
+                   }
+                   });
+            return o;
+    }
+});
