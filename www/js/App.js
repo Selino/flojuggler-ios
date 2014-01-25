@@ -29,7 +29,7 @@ $("#add-flo-btn").on('click', function() {
                      createNewFlo();
                      });
 
-function onResume() {
+function onResume(){
     makeList();
 }
 
@@ -147,6 +147,7 @@ function updateImageSrc(path) {
     $('.thumbnail-button').attr('src',path).nocacheImg();
 }
 
+//primitive helpers
 function secToDays(value) {
     var d = value/1000/60/60/24;
     return Math.round(d);
