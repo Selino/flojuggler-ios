@@ -12,9 +12,7 @@ function gotImageURI(fileEntry) {
 }
 
 function movedImageSuccess(fileEntry) {
-    var myNow = new Date().getTime();
-    var newPath = fileEntry.fullPath + "?localtime=" + myNow;
-    updateImageSrc(newPath);
+    updateImageSrc(fileEntry.fullPath);
 }
 
 function updateCameraImages(imageURI) {
