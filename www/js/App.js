@@ -119,13 +119,11 @@ function displayResultSet(){
         myOutput = "<div class='no-flo' data-shadow='false'>You're not tracking any flos at this time.</div>";
         myPredictOutput = myOutput;
     }
-    
+    checkForMaxFlos();
     updateFloListLayout(myOutput,myPredictOutput);
-    
 }
 
 function updateFloListLayout(myOutput,myPredictOutput){
-    checkForMaxFlos();
     $('#flos-list').html(myOutput).trigger('create');
     $('#predict-list').html(myPredictOutput).trigger('create');
 	$('.edit-button').on('tap', function(){
