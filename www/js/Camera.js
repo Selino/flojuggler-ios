@@ -1,5 +1,5 @@
-var pictureSource;   // picture source
-var destinationType; // sets the format of returned value
+var pictureSource;
+var destinationType;
 
 // Called when a photo is successfully retrieved
 function onPhotoDataSuccess(imageData) {
@@ -8,6 +8,7 @@ function onPhotoDataSuccess(imageData) {
 
 // Called when a photo is successfully retrieved
 function onPhotoURISuccess(imageURI) {
+    console.log(imageURI);
     FileIO.updateCameraImages(imageURI);
 }
 

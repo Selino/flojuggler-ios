@@ -1,6 +1,5 @@
 var gImageURI = '';
 var gFileSystem = {};
-var gImageFile = {};
 
 var FileIO = {
 
@@ -14,7 +13,7 @@ var FileIO = {
     },
 
     gotImageURI : function(fileEntry) {
-        var newName = 'thumbnail_' + gCurrentFlo + ".jpg";
+        var newName = "thumbnail_" + gCurrentFlo + ".jpg";
         fileEntry.moveTo(gFileSystem.root, newName, FileIO.movedImageSuccess, FileIO.errorHandler);
     },
 
