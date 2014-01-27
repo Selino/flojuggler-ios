@@ -49,6 +49,6 @@ var app = {
         
         makeList();
         
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, errorHandler);
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, FileIO.gotFS, FileIO.errorHandler);
     }
 };

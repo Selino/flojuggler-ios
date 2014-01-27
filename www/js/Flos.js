@@ -1,7 +1,7 @@
 gCurrentFlo = 'reset';
 currentTime = new Date().getTime();
 
-Flos = {
+var Flos = {
     
     helloWorld : function(){
         return ("Hello flos!");

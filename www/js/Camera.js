@@ -3,12 +3,12 @@ var destinationType; // sets the format of returned value
 
 // Called when a photo is successfully retrieved
 function onPhotoDataSuccess(imageData) {
-    updateCameraImages(imageData);
+    FileIO.updateCameraImages(imageData);
 }
 
 // Called when a photo is successfully retrieved
 function onPhotoURISuccess(imageURI) {
-    updateCameraImages(imageURI);
+    FileIO.updateCameraImages(imageURI);
 }
 
 // A button will call this function

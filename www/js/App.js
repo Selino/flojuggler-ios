@@ -38,7 +38,7 @@ function deleteFloThumbnail(){
     
     if (sThumbnailPath != 'images/thumbnail.svg') {
         sThumbnailPath = 'file://' + sThumbnailPath.slice(0, - 24);
-        removeDeletedImage(sThumbnailPath);
+        FileIO.removeDeletedImage(sThumbnailPath);
     }
 }
 
