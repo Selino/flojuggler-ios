@@ -42,7 +42,10 @@
         <div data-role="page" id="edit-page">
             <div data-id="header" data-role="header" data-position="fixed">
                 <a id="list-page-button" href="#list-page" data-iconpos="notext" data-role="button" data-icon="bars" data-transition="slide" data-direction="reverse" data-mini="true" data-inline="true" data-shadow="false">Back</a>
-                <a id="delete-button" data-iconpos="notext" data-role="button" data-icon="delete" data-mini="true" data-inline="true" data-shadow="false">Delete</a>
+                
+                <a id="delete-button" data-iconpos="notext" data-role="button" data-icon="delete" data-mini="true" data-inline="true" data-shadow="false" data-rel="delete-popup" data-position-to="window" data-transition="pop">Delete</a>
+                
+                
                 <h1><img class="flojuggler-logo" src='images/logo_v3.svg' /></h1>
             </div>
             <div data-role="content">
@@ -66,6 +69,15 @@
                     <input type="hidden" name="thumbnail" id="thumbnail" value="images/thumbnail.svg"  />
                 </form>
             </div>
+            
+            <div data-role="popup" id="popup-delete" data-overlay-theme="b" data-theme="b" data-dismissible="false">
+                <div role="main" class="ui-content">
+                    <p>Are you sure that you want to delete <span id="delete-popup-name">NAME</span>?</p>
+                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+                    <a id="delete-popup-confirm-btn" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">DELETE</a>
+                </div>
+            </div>
+            
         </div>
         
         <div data-role="page" id="predict-page" data-shadow="false">

@@ -12,12 +12,14 @@ $("#edit-page").on('pageinit', function (evt) {
                                });;
 
 $("#delete-button").on('click', function() {
-                       $("#edit-form").fadeOut('fast', function(){
-                                               deleteFloThumbnail();
-                                               Flos.deleteFlo(gCurrentFlo);
-                                               $.mobile.changePage( '#list-page');
-                                               });
+                           var deleteName = $("#name").val();
+                           $("#delete-popup-name").html(deleteName)
+                           $("#popup-delete").popup('open');
                        });
+
+$("#delete-popup-confirm-btn").on('click', function() {
+                                  startDeleteFlo();
+                                  });
 
 $(".thumbnail-button").on('click', function() {
                           getPhoto(pictureSource.PHOTOLIBRARY);
@@ -35,6 +37,14 @@ $("#add-flo-btn").on('click', function() {
 
 function onResume(){
     makeList();
+}
+
+function startDeleteFlo(){
+    $("#edit-form").fadeOut('fast', function(){
+                            deleteFloThumbnail();
+                            Flos.deleteFlo(gCurrentFlo);
+                            $.mobile.changePage( '#list-page');
+                            });
 }
 
 function deleteFloThumbnail(){
