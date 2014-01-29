@@ -87,6 +87,7 @@ function checkNameDateFields() {
                                   if (dateValue == '' || dateValue == null) {
                                       $('#startDate').val(new Date().toJSON().slice(0,10));
                                   }
+                                  document.body.scrollTop = document.documentElement.scrollTop = 0;
                                   })
     
     $('#edit-form #name').on('blur', function() {
@@ -94,6 +95,7 @@ function checkNameDateFields() {
                              if (nameValue == '' || nameValue == null) {
                                  $('#name').val('Unnamed');
                              }
+                             document.body.scrollTop = document.documentElement.scrollTop = 0;
                              })
 }
 
