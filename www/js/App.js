@@ -7,12 +7,16 @@ $("#edit-page").on('pageinit', function (evt) {
                    }).on('pagebeforehide', function(evt) {
                          updateEditPage();
                          makeList();
-                         });;
+                         }).on('pagebeforeshow', function(evt) {
+                               $("#edit-form").show();
+                               });;
 
 $("#delete-button").on('click', function() {
-                       deleteFloThumbnail();
-                       Flos.deleteFlo(gCurrentFlo);
-                       $.mobile.changePage( '#list-page');
+                       $("#edit-form").fadeOut('fast', function(){
+                                               deleteFloThumbnail();
+                                               Flos.deleteFlo(gCurrentFlo);
+                                               $.mobile.changePage( '#list-page');
+                                               });
                        });
 
 $(".thumbnail-button").on('click', function() {
