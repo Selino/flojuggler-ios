@@ -112,7 +112,7 @@ function displayResultSet(){
             "' href='#edit-page' data-id='" + i +
             "' data-icon='carat-r' data-iconpos='right' data-role='button' data-transition='slide' data-shadow='false'>" +
             "<image width='60' class='thumbnail' src='"+ row.thumbnail +"' />" +
-            "<span class='name-title'>" + row.name + "</span>" +
+            "<span class='name-title'>" + truncateString(row.name, 12) + "</span>" +
             " <span class='status-text'>is "+ myFloStatus.text +"</span></a>";
             
             myPredictOutput += '<label><input type="radio" name="predictItem" id="pred-item-' + i + '" value="' + i + '" checked>' + row.name + '</label>';
@@ -153,6 +153,14 @@ function updateImageSrc(path) {
 function secToDays(value) {
     var d = value/1000/60/60/24;
     return Math.round(d);
+}
+
+function truncateString(string,max){
+    if(string.length >= max){
+        return string.slice(0,max) + "…";
+    } else {
+        return string;
+    }
 }
 
 //JQuery helpers
