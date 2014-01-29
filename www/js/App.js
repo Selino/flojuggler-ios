@@ -155,6 +155,11 @@ function secToDays(value) {
     return Math.round(d);
 }
 
+function humanDate(sDate){
+    var newDate = new Date(sDate).toLocaleDateString();
+    return newDate;
+}
+
 //JQuery helpers
 $.fn.extend({
     nocacheImg : function(){
