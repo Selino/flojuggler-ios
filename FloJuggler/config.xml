@@ -34,7 +34,7 @@
     <feature name="File">
         <param name="ios-package" value="CDVFile" />
     </feature>
-    <name>FloJuggler</name>
+    <name>Flojuggler</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
