@@ -9,11 +9,12 @@ var Predictor = {
     
     reportPrediction : function(predictionData,myFlo,myPrediction) {
         var myTime = new Date(predictionData.predictDate).getTime();
+        var newDateFormat = moment(predictionData.predictDate).format('MMMM Do, YYYY');
         
         if(myTime <= currentTime) {
             $("#prediction-text").html("Please choose a date in the future.");
         } else {
-            $("#prediction-text").html(myFlo.name + " will be " + myPrediction.text + " on " + humanDate(predictionData.predictDate) + ".");
+            $("#prediction-text").html(myFlo.name + " will be " + myPrediction.text + " on " + newDateFormat + ".");
         }
         
         $("#popupDialog").popup('open');
