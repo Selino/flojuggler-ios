@@ -52,12 +52,6 @@ a {
     font-weight: normal;
 }
 
-.ui-input-text:first-of-type {
-    float: left;
-    margin: 8px 0 0 20px;
-    width: 12em;
-}
-
 .name-title {
     position: absolute;
     top: 24px;
@@ -110,6 +104,18 @@ img.thumbnail-button {
 
 .ui-field-contain:last-of-type {
     border: none;
+}
+
+.ui-field-contain:last-of-type .ui-input-text input {
+    min-height: 1em !important;
+}
+
+.ui-field-contain:first-child .ui-input-text {
+    width: 12em;
+    float: left;
+    margin: 0 0 0 10px;
+    line-height: 1em;
+    padding-top: .4em;
 }
 
 /* JQuery Mobile resetters */
