@@ -1,7 +1,6 @@
 /* CSS Document */
 
-body {
-    font-family: Helvetica, Arial, Verdana, sans-serif;
+body, input {
     font-size: 16px;
 }
 
