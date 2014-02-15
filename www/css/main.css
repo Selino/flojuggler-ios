@@ -10,9 +10,10 @@ input {
     font-weight: bold;
 }
 
-/* have to reset after jqm mods the dom */
-#edit-form input[type=number] {
+/* have to reset number types after jqm mods the dom */
+input[type=number], input[type=date] {
     font-size: 2em;
+    line-height: 0;
 }
 
 a {
