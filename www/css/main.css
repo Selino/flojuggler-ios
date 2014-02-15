@@ -51,6 +51,12 @@ a {
     font-weight: normal;
 }
 
+.ui-input-text:first-of-type {
+    float: left;
+    margin: 8px 0 0 20px;
+    width: 12em;
+}
+
 .name-title {
     position: absolute;
     top: 24px;
@@ -75,6 +81,10 @@ img.thumbnail {
     margin-right: .4em;
 }
 
+img.thumbnail-button {
+    float: left;
+}
+
 .ui-header {
     border-bottom: solid 1px #E5E5E5 !important;
     border-top: none;
@@ -95,6 +105,10 @@ img.thumbnail {
 #flos-list .ui-btn.ui-btn-active {
     border-color: #E5E5E5 !important;
     opacity:0.5;
+}
+
+.ui-field-contain:last-of-type {
+    border: none;
 }
 
 /* JQuery Mobile resetters */
@@ -132,4 +146,16 @@ input.ui-slider-input {
 .ui-input-text, .ui-input-text input {
     padding: 0;
     margin: 0;
+}
+
+.ui-field-contain {
+    padding: 1.4em 0;
+}
+
+.ui-field-contain:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
 }
