@@ -21,11 +21,8 @@ input#name {
     font-size: 1.3em;
 }
 
-.ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset,
-.ui-shadow-inset.ui-body-inherit.ui-corner-all.ui-slider-input {
-    box-shadow: none;
-    border: none;
-    padding: none;
+#edit-form input[type=number] {
+    font-size: 2em;
 }
 
 .status-red {
@@ -98,6 +95,8 @@ img.thumbnail {
     opacity:0.5;
 }
 
+/* resetters */
+
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
     background: white;
     border-color: #bbb;
@@ -108,4 +107,23 @@ img.thumbnail {
 
 .ui-content-no-padding {
     padding: 0;
+}
+
+div.ui-slider {
+    height: auto;
+}
+
+.ui-slider-track {
+    top: 14px;
+}
+
+input.ui-slider-input {
+    height: auto;
+}
+
+.ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset,
+.ui-shadow-inset.ui-body-inherit.ui-corner-all.ui-slider-input {
+    box-shadow: none;
+    border: none;
+    padding: none;
 }
