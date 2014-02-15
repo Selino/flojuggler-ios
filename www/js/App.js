@@ -126,7 +126,7 @@ function displayResultSet(){
             "' href='#edit-page' data-id='" + i +
             "' data-icon='carat-r' data-iconpos='right' data-role='button' data-transition='slide' data-shadow='false'>" +
             "<image width='60' class='thumbnail' src='"+ row.thumbnail +"' />" +
-            "<span class='name-title'>" + truncateString(row.name, 12) + "</span>" +
+            "<span class='name-title'>" + truncateString(row.name, 13) + "</span>" +
             " <span class='status-text'>is "+ myFloStatus.text +"</span></a>";
             
             myPredictOutput += '<label><input type="radio" name="predictItem" id="pred-item-' + i + '" value="' + i + '" checked>' + row.name + '</label>';
