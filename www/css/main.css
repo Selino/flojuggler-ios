@@ -5,30 +5,26 @@ body {
     font-size: 16px;
 }
 
-.red {
-    color: #EA1D23;
-}
-
 input {
-    font-size: 1.3em;
+    font-size: 1.4em;
     font-weight: bold;
 }
 
-.flojuggler-logo {
-    width: 70px;
+/* have to reset after jqm mods the dom */
+#edit-form input[type=number] {
+    font-size: 2em;
 }
 
 a {
     color: white;
 }
 
-.ui-input-text, .ui-input-text input {
-    padding: 0;
-    margin: 0;
+.flojuggler-logo {
+    width: 70px;
 }
 
-#edit-form input[type=number] {
-    font-size: 2em;
+.red {
+    color: #EA1D23;
 }
 
 .status-red {
@@ -101,7 +97,7 @@ img.thumbnail {
     opacity:0.5;
 }
 
-/* resetters */
+/* JQuery Mobile resetters */
 
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
     background: white;
@@ -109,7 +105,6 @@ img.thumbnail {
     color: #333;
     text-shadow: 0 1px 0 #f3f3f3;
 }
-
 
 .ui-content-no-padding {
     padding: 0;
@@ -132,4 +127,9 @@ input.ui-slider-input {
     box-shadow: none;
     border: none;
     padding: none;
+}
+
+.ui-input-text, .ui-input-text input {
+    padding: 0;
+    margin: 0;
 }
