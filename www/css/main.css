@@ -13,7 +13,7 @@ input {
 /* have to reset number types after jqm mods the dom */
 input[type=number], input[type=date] {
     font-size: 2em;
-    line-height: 0;
+    line-height: 1em;
 }
 
 a {
