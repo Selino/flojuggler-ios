@@ -98,9 +98,12 @@ function resetEditPage(){
 function checkNameDateFields() {
     $('#edit-form #startDate').on('blur', function() {
                                   var dateValue = this.value;
-                                  if (dateValue == '' || dateValue == null) {
+                                  var bIspast = makeSurePast(dateValue);
+                                  
+                                  if (!bIspast) {
                                       $('#startDate').val(new Date().toJSON().slice(0,10));
                                   }
+                                  
                                   document.body.scrollTop = document.documentElement.scrollTop = 0;
                                   })
     
@@ -174,6 +177,24 @@ function truncateString(string,max){
         return string.slice(0,max) + "…";
     } else {
         return string;
+    }
+}
+
+function makeSurePast(date){
+    var myTime = new Date(date).getTime();
+    if (myTime > currentTime) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function makeSureFuture(date){
+    var myTime = new Date(date).getTime();
+    if (myTime <= currentTime) {
+        return false;
+    } else {
+        return true;
     }
 }
 

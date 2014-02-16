@@ -8,10 +8,12 @@ var Predictor = {
 	},
     
     reportPrediction : function(predictionData,myFlo,myPrediction) {
-        var myTime = new Date(predictionData.predictDate).getTime();
+        //var myTime = new Date(predictionData.predictDate).getTime();
         var newDateFormat = moment(predictionData.predictDate).format('MMMM Do, YYYY');
+        var bIsFuture = makeSureFuture(predictionData.predictDate);
+        console.log(bIsFuture);
         
-        if(myTime <= currentTime) {
+        if(!bIsFuture) {
             $("#prediction-text").html("Please choose a date in the future.");
         } else {
             $("#prediction-text").html(myFlo.name + " will be " + myPrediction.text + " on " + newDateFormat + ".");
