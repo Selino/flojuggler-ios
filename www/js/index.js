@@ -37,6 +37,8 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+        
+        document.documentElement.style.webkitTouchCallout = 'none';
 
         console.log('Received Event: ' + id);
         
