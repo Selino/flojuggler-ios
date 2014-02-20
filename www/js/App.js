@@ -6,8 +6,9 @@ $("#edit-page").on('pageinit', function (evt) {
                    checkNameDateFields();
                    }).on('pagebeforehide', function(evt) {
                          updateEditPage();
-                         makeList();
+                         //makeList();
                          }).on('pagebeforeshow', function(evt) {
+                               updateEditPage();
                                $("#edit-form").show();
                                });;
 
@@ -88,7 +89,7 @@ function updateEditPage() {
 function makeList(){
 	Model.openDB();
 	Model.getFlos();
-    resetEditPage();
+    //resetEditPage();
 }
 
 function resetEditPage(){

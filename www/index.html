@@ -46,7 +46,7 @@
                 <a id="delete-button" data-iconpos="notext" data-role="button" data-icon="delete" data-mini="true" data-inline="true" data-shadow="false" data-rel="delete-popup" data-position-to="window" data-transition="pop">Delete</a>
                 
                 
-                <h1><img class="flojuggler-logo" src='images/logo_v3.svg' /></h1>
+                <h1><a href="#info-page" data-transition="slideup"><img class="flojuggler-logo" src='images/logo_v3.svg' /></a></h1>
             </div>
             <div data-role="content">
                 <form id="edit-form" data-ajax="false">
@@ -87,10 +87,10 @@
             </div>
             <div data-role="content" class="ui-content">
                 <form id='predict-form'>
-                    
-                        <a id="predict-button" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all">Predict</a>
-                    
+                    <div data-role="fieldcontain">
+                        <a id="predict-button" data-role="button" data-shadow="false" data-rel="popup" data-position-to="window" data-transition="pop" class="green-btn">Predict</a>
                         <input type="date" name="predictDate" id="predictDate" value="" />
+                        </div>
                     
                     <fieldset data-role="controlgroup" id="predict-list">
                         <input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" value="on" checked="checked">

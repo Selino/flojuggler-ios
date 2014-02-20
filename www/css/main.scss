@@ -1,8 +1,9 @@
 /* SCSS Document */
 
 $bg-color-red:#EA1D23;
-$bg-color-green:#F2F2F2;
+$bg-color-green: green;
 $bg-color-yellow:#FFE699;
+$bg-color-grey:#F2F2F2;
 
 body {
     font-size: 16px;
@@ -32,7 +33,7 @@ a {
 
 .status-green {
 	color: #333 !important;
-    background-color: $bg-color-green !important;
+    background-color: $bg-color-grey !important;
 }
 
 .status-yellow {
@@ -115,6 +116,13 @@ img.thumbnail-button {
     padding-top: .4em;
 }
 
+.green-btn {
+    color: #fff !important;
+    background-color: #5cb85c !important;
+    border-color: #4cae4c !important;
+    text-shadow: none !important;
+}
+
 /***** utilities *****/
 *:not(input):not(textarea) {
     -webkit-user-select: none; /* disable selection/Copy of UIWebView */
@@ -124,7 +132,7 @@ img.thumbnail-button {
 /* have to reset number types after jqm mods the dom */
 input[type=number], input[type=date] {
     font-size: 2em;
-    line-height: 1em;
+
 }
 
 /***** JQuery Mobile resetters ******/
