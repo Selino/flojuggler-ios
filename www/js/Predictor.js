@@ -11,7 +11,6 @@ var Predictor = {
         //var myTime = new Date(predictionData.predictDate).getTime();
         var newDateFormat = moment(predictionData.predictDate).format('MMMM Do, YYYY');
         var bIsFuture = makeSureFuture(predictionData.predictDate);
-        console.log(bIsFuture);
         
         if(!bIsFuture) {
             $("#prediction-text").html("Please choose a date in the future.");
@@ -20,15 +19,32 @@ var Predictor = {
         }
         
         $("#popupDialog").popup('open');
+    },
+    
+    getNextDay : function() {
+        var myDate = new Date();
+        myDate.setDate(myDate.getDate() + 1);
+        //return myDate;
+        $("#predictDate").val(myDate.toJSON().slice(0,10));
+        
     }
 }
 
 $("#predict-page").on('pagebeforeshow', function(evt) {
-                      var myDate = new Date();
-                      myDate.setDate(myDate.getDate() + 1);
-                      $("#predictDate").val(myDate.toJSON().slice(0,10));
+                      Predictor.getNextDay();
                       });
 
 $("#predict-button").on('tap', function(evt){
                         Predictor.runPrediction();
                         });
+
+$("#predict-form #predictDate").on('blur', function() {
+                              var dateValue = this.value;
+                              var bIsFuture = makeSureFuture(dateValue);
+                              
+                              if (!bIsFuture) {
+                                  Predictor.getNextDay();
+                              }
+                              
+                              document.body.scrollTop = document.documentElement.scrollTop = 0;
+                              })
