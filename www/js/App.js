@@ -10,7 +10,7 @@ $("#edit-page").on('pageinit', function (evt) {
                          }).on('pagebeforeshow', function(evt) {
                                updateEditPage();
                                $("#edit-form").show();
-                               });;
+                               }).on('swiperight', swipeEditPage);
 
 $("#delete-button").on('click', function() {
                            var deleteName = $("#name").val();
@@ -35,6 +35,10 @@ $("input[type=text]").on("keypress", function(e) {
 $("#add-flo-btn").on('click', function() {
                      createNewFlo();
                      });
+
+function swipeEditPage(){
+    $.mobile.changePage( '#list-page', { transition: 'slide', reverse: true});
+}
 
 function onResume(){
     var activePage = $.mobile.activePage.attr("id");
@@ -132,7 +136,7 @@ function displayResultSet(){
             
             myOutput += "<a class='edit-button " + myFloStatus.code +
             "' href='#edit-page' data-id='" + i +
-            "' data-icon='carat-r' data-iconpos='right' data-role='button' data-transition='slide' data-shadow='false'>" +
+            "' data-icon='carat-l' data-iconpos='right' data-role='button' data-transition='slide' data-shadow='false'>" +
             "<image width='60' class='thumbnail' src='"+ row.thumbnail +"' />" +
             "<span class='name-title'>" + truncateString(row.name, 13) + "</span>" +
             " <span class='status-text'>is "+ myFloStatus.text +"</span></a>";
@@ -147,14 +151,25 @@ function displayResultSet(){
     updateFloListLayout(myOutput,myPredictOutput);
 }
 
-function updateFloListLayout(myOutput,myPredictOutput){
-    $('#flos-list').html(myOutput).trigger('create');
-    $('#predict-list').html(myPredictOutput).trigger('create');
-	$('.edit-button').on('tap', function(){
+function setEditBtnActions(){
+    $('.edit-button').on('click', function(event){
+                         event.preventDefault();
                          populateEditPage(
                                           $(this).attr('data-id')
                                           );
-                         });
+                         $.mobile.changePage('#edit-page', { transition: 'slide' });
+                         }).on('swipeleft', function(event){
+                               populateEditPage(
+                                                $(this).attr('data-id')
+                                                );
+                               $.mobile.changePage('#edit-page', { transition: 'slide' });
+                               });
+}
+
+function updateFloListLayout(myOutput,myPredictOutput){
+    $('#flos-list').html(myOutput).trigger('create');
+    $('#predict-list').html(myPredictOutput).trigger('create');
+	setEditBtnActions();
     $('.thumbnail').nocacheImg();
 }
 
