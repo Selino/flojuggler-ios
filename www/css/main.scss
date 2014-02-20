@@ -1,7 +1,7 @@
 /* SCSS Document */
 
 $bg-color-red:#EA1D23;
-$bg-color-green: green;
+$bg-color-green: green; /* not used */
 $bg-color-yellow:#FFE699;
 $bg-color-grey:#F2F2F2;
 
@@ -29,16 +29,19 @@ a {
 .status-red {
 	color: white !important;
     background-color: $bg-color-red !important;
+    border-bottom: solid 1px #c21217 !important;
 }
 
 .status-green {
 	color: #333 !important;
     background-color: $bg-color-grey !important;
+    border-bottom: solid 1px #E5E5E5 !important;
 }
 
 .status-yellow {
 	color: #333 !important;
     background-color: $bg-color-yellow !important;
+    border-bottom: solid 1px #ffcd33 !important;
 }
 
 .status-text {
@@ -89,14 +92,12 @@ img.thumbnail-button {
     font-size: 1.5em;
     text-shadow: none !important;
     border: none;
-    border-bottom: solid 1px #E5E5E5;
     padding-left: .4em;
     margin: 0;
     border-radius: 0 !important;
 }
 
 #flos-list .ui-btn.ui-btn-active {
-    border-color: #E5E5E5 !important;
     opacity:0.5;
 }
 
