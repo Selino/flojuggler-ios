@@ -152,7 +152,7 @@ function displayResultSet(){
 }
 
 function setEditBtnActions(){
-    $('.edit-button').on('click', function(event){
+    $('.edit-button').on('tap', function(event){
                          event.preventDefault();
                          populateEditPage(
                                           $(this).attr('data-id')
