@@ -1,0 +1,177 @@
+/* CSS Document */
+
+body {
+    font-size: 16px;
+}
+
+input {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+a {
+    color: white;
+}
+
+.flojuggler-logo {
+    width: 70px;
+}
+
+.red {
+    color: #EA1D23;
+}
+
+.status-red {
+	color: white !important;
+    background-color: #EA1D23 !important;
+}
+
+.status-green {
+	color: #333 !important;
+    background-color: #F2F2F2 !important;
+}
+
+.status-yellow {
+	color: #333 !important;
+    background-color: #FFE699 !important;
+}
+
+.status-text {
+	font-size: .6em;
+	margin-left: 4px;
+    position: absolute;
+    bottom: 22px;
+    left: 74px;
+    font-weight: normal;
+}
+
+.name-title {
+    position: absolute;
+    top: 24px;
+    left: 76px;
+}
+
+.no-flo {
+    text-align: center;
+    margin-top: 10%;
+    color: #999;
+}
+
+img.thumbnail-button, img.thumbnail {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background-color: #999;
+}
+
+img.thumbnail {
+    vertical-align: middle;
+    margin-right: .4em;
+}
+
+img.thumbnail-button {
+    float: left;
+}
+
+.ui-header {
+    border-bottom: solid 1px #E5E5E5 !important;
+    border-top: none;
+    background-color: #fff !important;
+}
+
+.edit-button {
+    text-align: left;
+    font-size: 1.5em;
+    text-shadow: none !important;
+    border: none;
+    border-bottom: solid 1px #E5E5E5;
+    padding-left: .4em;
+    margin: 0;
+    border-radius: 0 !important;
+}
+
+#flos-list .ui-btn.ui-btn-active {
+    border-color: #E5E5E5 !important;
+    opacity:0.5;
+}
+
+.ui-field-contain:last-of-type {
+    border: none;
+}
+
+.ui-field-contain:last-of-type .ui-input-text input {
+    min-height: 1em !important;
+}
+
+.ui-field-contain:first-child .ui-input-text {
+    width: 12em;
+    float: left;
+    margin: 0 0 0 10px;
+    line-height: 1em;
+    padding-top: .4em;
+}
+
+.ctrl-area {
+    background-color: #B20000;
+    height: 40px;
+}
+
+/***** utilities *****/
+*:not(input):not(textarea) {
+    -webkit-user-select: none; /* disable selection/Copy of UIWebView */
+    -webkit-touch-callout: none; /* disable the IOS popup when long-press on a link */
+}
+
+/* have to reset number types after jqm mods the dom */
+input[type=number], input[type=date] {
+    font-size: 2em;
+    line-height: 1em;
+}
+
+/***** JQuery Mobile resetters ******/
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+    background: white;
+    border-color: #bbb;
+    color: #333;
+    text-shadow: 0 1px 0 #f3f3f3;
+}
+
+.ui-content-no-padding {
+    padding: 0;
+}
+
+div.ui-slider {
+    height: auto;
+}
+
+.ui-slider-track {
+    top: 14px;
+}
+
+input.ui-slider-input {
+    height: auto;
+}
+
+.ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset,
+.ui-shadow-inset.ui-body-inherit.ui-corner-all.ui-slider-input {
+    box-shadow: none;
+    border: none;
+    padding: none;
+}
+
+.ui-input-text, .ui-input-text input {
+    padding: 0;
+    margin: 0;
+}
+
+.ui-field-contain {
+    padding: 1.4em 0;
+}
+
+.ui-field-contain:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
