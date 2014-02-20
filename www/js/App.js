@@ -65,6 +65,7 @@ function displayInsertResult(tx, rs){
 }
 
 function createNewFlo(){
+    resetEditPage();
     var myNewFlo = $('#edit-form').stringifyForm();
     Model.addFlo(myNewFlo);
 }
