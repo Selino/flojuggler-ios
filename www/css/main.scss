@@ -1,4 +1,8 @@
-/* CSS Document */
+/* SCSS Document */
+
+$bg-color-red:#EA1D23;
+$bg-color-green:#F2F2F2;
+$bg-color-yellow:#FFE699;
 
 body {
     font-size: 16px;
@@ -18,22 +22,22 @@ a {
 }
 
 .red {
-    color: #EA1D23;
+    color: $bg-color-red;
 }
 
 .status-red {
 	color: white !important;
-    background-color: #EA1D23 !important;
+    background-color: $bg-color-red !important;
 }
 
 .status-green {
 	color: #333 !important;
-    background-color: #F2F2F2 !important;
+    background-color: $bg-color-green !important;
 }
 
 .status-yellow {
 	color: #333 !important;
-    background-color: #FFE699 !important;
+    background-color: $bg-color-yellow !important;
 }
 
 .status-text {
@@ -109,11 +113,6 @@ img.thumbnail-button {
     margin: 0 0 0 10px;
     line-height: 1em;
     padding-top: .4em;
-}
-
-.ctrl-area {
-    background-color: #B20000;
-    height: 40px;
 }
 
 /***** utilities *****/
