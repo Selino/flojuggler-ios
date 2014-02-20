@@ -36,7 +36,10 @@ $("#add-flo-btn").on('click', function() {
                      });
 
 function onResume(){
-    makeList();
+    var activePage = $.mobile.activePage.attr("id");
+    if (activePage == "list-page") {
+        makeList();
+    }
 }
 
 function startDeleteFlo(){
@@ -98,9 +101,9 @@ function resetEditPage(){
 function checkNameDateFields() {
     $('#edit-form #startDate').on('blur', function() {
                                   var dateValue = this.value;
-                                  var bIspast = makeSurePast(dateValue);
+                                  var bIsPast = makeSurePast(dateValue);
                                   
-                                  if (!bIspast) {
+                                  if (!bIsPast) {
                                       $('#startDate').val(new Date().toJSON().slice(0,10));
                                   }
                                   
@@ -181,20 +184,28 @@ function truncateString(string,max){
 }
 
 function makeSurePast(date){
-    var myTime = new Date(date).getTime();
-    if (myTime > currentTime) {
-        return false;
+    if (date != '' && date != null) {
+        var myTime = new Date(date).getTime();
+        if (myTime >= currentTime) {
+            return false;
+        } else {
+            return true;
+        }
     } else {
-        return true;
+        return false;
     }
 }
 
 function makeSureFuture(date){
-    var myTime = new Date(date).getTime();
-    if (myTime <= currentTime) {
-        return false;
+    if (date != '' && date != null) {
+        var myTime = new Date(date).getTime();
+        if (myTime <= currentTime) {
+            return false;
+        } else {
+            return true;
+        }
     } else {
-        return true;
+        return false;
     }
 }
 
