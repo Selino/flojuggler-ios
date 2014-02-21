@@ -37,6 +37,12 @@ $("#add-flo-btn").on('click', function() {
                      createNewFlo();
                      });
 
+$(document).on('slidestart', '#edit-form input[type=number]', function(){
+                   $("#edit-page").unbind('swiperight');
+               }).on('slidestop', '#edit-form input[type=number]', function(){
+                     $("#edit-page").on('swiperight', swipeEditPage);
+               });
+
 function swipeEditPage(){
     $.mobile.changePage( '#list-page', { transition: 'slide', reverse: true});
 }
