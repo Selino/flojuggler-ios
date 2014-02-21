@@ -4,6 +4,8 @@ $bg-color-red:#EA1D23;
 $bg-color-green: green; /* not used */
 $bg-color-yellow:#FFE699;
 $bg-color-grey:#F2F2F2;
+$thumbnail-size: 60px;
+$edit-thumbnail-size: 80px;
 
 body {
     font-size: 16px;
@@ -52,9 +54,14 @@ a {
 
 img.thumbnail-button, img.thumbnail {
     border-radius: 50%;
-    height: 60px;
-    width: 60px;
+    height: $thumbnail-size;
+    width: $thumbnail-size;
     background-color: #999;
+}
+
+img.thumbnail-button {
+    height: $edit-thumbnail-size;
+    width: $edit-thumbnail-size;
 }
 
 img.thumbnail {
@@ -77,26 +84,45 @@ img.thumbnail-button {
     font-size: 1.5em;
     text-shadow: none !important;
     border: none;
-    padding: .5em 0 .5em .4em;
+    padding: 0;
     margin: 0;
     border-radius: 0 !important;
     position: relative;
-}
 
-.status-text {
-	font-size: .6em;
-	margin-left: 4px;
-    position: absolute;
-    bottom: 1.6em;
-    left: 74px;
-    font-weight: normal;
-}
+    .status-text {
+        font-size: .6em;
+        margin-left: 4px;
+        position: absolute;
+        bottom: 1.5em;
+        left: 74px;
+        font-weight: normal;
+    }
 
-.name-title {
-    position: absolute;
-    top: .7em;
-    left: 76px;
-    font-weight: bold;
+    .name-title {
+        position: absolute;
+        top: .7em;
+        left: 76px;
+        font-weight: bold;
+    }
+
+    .info-area {
+        position: relative;
+        padding: .5em 0 .5em .4em;
+    }
+
+    .crtl-area {
+        display: none;
+        height: 40px;
+        background-color: black;
+    }
+    
+    .carat {
+        position: absolute;
+        right: .6em;
+        top: 25%;
+        width: 20px;
+        opacity: .3;
+    }
 }
 
 #flos-list .ui-btn.ui-btn-active {
@@ -116,7 +142,7 @@ img.thumbnail-button {
     float: left;
     margin: 0 0 0 10px;
     line-height: 1em;
-    padding-top: .4em;
+    padding-top: .8em;
 }
 
 .green-btn {
@@ -124,6 +150,12 @@ img.thumbnail-button {
     background-color: #5cb85c !important;
     border-color: #4cae4c !important;
     text-shadow: none !important;
+}
+
+#edit-page {
+    .ui-field-contain:first-child {
+        padding-top: 0;
+    }
 }
 
 /***** utilities *****/

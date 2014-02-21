@@ -143,10 +143,14 @@ function displayResultSet(){
             
             myOutput += "<div class='edit-button " + myFloStatus.code +
             "' href='#edit-page' data-id='" + i +
-            "' data-icon='carat-l' data-iconpos='right' data-role='button' data-transition='slide' data-shadow='false'>" +
-            "<image width='60' class='thumbnail' src='"+ row.thumbnail +"' />" +
+            "' data-role='button' data-transition='slide' data-shadow='false'>" +
+//            "<div class='crtl-area'>" +
+//            "<a href='#predict-page' data-icon='calendar' data-role='button' data-shadow='false' data-mini='true'>Predict</a>" +
+//            "</div>" +
+            "<div class='info-area'><image width='60' class='thumbnail' src='"+ row.thumbnail +"' />" +
+            "<image class='carat' src='css/images/icons-svg/carat-l-black.svg' />" +
             "<span class='name-title'>" + truncateString(row.name, 13) + "</span>" +
-            " <span class='status-text'>is "+ myFloStatus.text +"</span></div>";
+            " <span class='status-text'>is "+ myFloStatus.text +"</span></div></div>";
             
             myPredictOutput += '<label><input type="radio" name="predictItem" id="pred-item-' + i + '" value="' + i + '" checked>' + row.name + '</label>';
         }
@@ -160,10 +164,8 @@ function displayResultSet(){
 
 function setEditBtnActions(){
     $('.edit-button').on('tap', function(event){
-                         populateEditPage(
-                                          $(this).attr('data-id')
-                                          );
-                         $.mobile.changePage('#edit-page', { transition: 'slide' });
+                         var that = $(this);
+                         setEditBtnTap(that);
                          }).on('swipeleft', function(event){
                                $(this).addClass('ui-btn-active');
                                populateEditPage(
@@ -171,20 +173,23 @@ function setEditBtnActions(){
                                                 );
                                $.mobile.changePage('#edit-page', { transition: 'slide' });
                                }).on('taphold', function(event){
-                                     event.preventDefault();
-                                     $(this).off('tap');
-                                    
-                                     console.log('tap hold');
-//                                     setTimeout(function(){		//after 3 seconds return click event, as it was removed
-                                                $(this).on("tap", function(){
-                                                           populateEditPage(
-                                                                            $(this).attr('data-id')
-                                                                            );
-                                                           $.mobile.changePage('#edit-page', { transition: 'slide' });
-                                                           
-                                                           })
-//                                                },2000);
+                                    var oThat = $(this);
+                                    oThat.off('tap');
+//                                    showCntrlArea(oThat);
+                                    $(this).on("tap", function(){
+                                               var that = $(this);
+                                               setEditBtnTap(that);
+                                               });
                                      });
+}
+
+function showCntrlArea(oEditItem){
+    oEditItem.children( ".crtl-area").slideToggle('fast');
+}
+
+function setEditBtnTap(e){
+    populateEditPage( $(e).attr('data-id') );
+    $.mobile.changePage('#edit-page', { transition: 'slide' });
 }
 
 function updateFloListLayout(myOutput,myPredictOutput){
