@@ -44,21 +44,6 @@ a {
     border-bottom: solid 1px #ffcd33 !important;
 }
 
-.status-text {
-	font-size: .6em;
-	margin-left: 4px;
-    position: absolute;
-    bottom: 22px;
-    left: 74px;
-    font-weight: normal;
-}
-
-.name-title {
-    position: absolute;
-    top: 24px;
-    left: 76px;
-}
-
 .no-flo {
     text-align: center;
     margin-top: 10%;
@@ -92,9 +77,26 @@ img.thumbnail-button {
     font-size: 1.5em;
     text-shadow: none !important;
     border: none;
-    padding-left: .4em;
+    padding: .5em 0 .5em .4em;
     margin: 0;
     border-radius: 0 !important;
+    position: relative;
+}
+
+.status-text {
+	font-size: .6em;
+	margin-left: 4px;
+    position: absolute;
+    bottom: 1.6em;
+    left: 74px;
+    font-weight: normal;
+}
+
+.name-title {
+    position: absolute;
+    top: .7em;
+    left: 76px;
+    font-weight: bold;
 }
 
 #flos-list .ui-btn.ui-btn-active {
@@ -142,6 +144,10 @@ input[type=number], input[type=date] {
     border-color: #bbb;
     color: #333;
     text-shadow: 0 1px 0 #f3f3f3;
+}
+
+.ui-btn:focus {
+    box-shadow: none !important;
 }
 
 .ui-content-no-padding {

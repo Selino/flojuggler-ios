@@ -141,12 +141,12 @@ function displayResultSet(){
             var row = globalFlos[i];
             var myFloStatus = Flos.getStatus(currentTime,row.startDate,row.cycle,row.long);
             
-            myOutput += "<a class='edit-button " + myFloStatus.code +
+            myOutput += "<div class='edit-button " + myFloStatus.code +
             "' href='#edit-page' data-id='" + i +
             "' data-icon='carat-l' data-iconpos='right' data-role='button' data-transition='slide' data-shadow='false'>" +
             "<image width='60' class='thumbnail' src='"+ row.thumbnail +"' />" +
             "<span class='name-title'>" + truncateString(row.name, 13) + "</span>" +
-            " <span class='status-text'>is "+ myFloStatus.text +"</span></a>";
+            " <span class='status-text'>is "+ myFloStatus.text +"</span></div>";
             
             myPredictOutput += '<label><input type="radio" name="predictItem" id="pred-item-' + i + '" value="' + i + '" checked>' + row.name + '</label>';
         }
@@ -160,7 +160,6 @@ function displayResultSet(){
 
 function setEditBtnActions(){
     $('.edit-button').on('tap', function(event){
-                         event.preventDefault();
                          populateEditPage(
                                           $(this).attr('data-id')
                                           );
@@ -171,7 +170,21 @@ function setEditBtnActions(){
                                                 $(this).attr('data-id')
                                                 );
                                $.mobile.changePage('#edit-page', { transition: 'slide' });
-                               });
+                               }).on('taphold', function(event){
+                                     event.preventDefault();
+                                     $(this).off('tap');
+                                    
+                                     console.log('tap hold');
+//                                     setTimeout(function(){		//after 3 seconds return click event, as it was removed
+                                                $(this).on("tap", function(){
+                                                           populateEditPage(
+                                                                            $(this).attr('data-id')
+                                                                            );
+                                                           $.mobile.changePage('#edit-page', { transition: 'slide' });
+                                                           
+                                                           })
+//                                                },2000);
+                                     });
 }
 
 function updateFloListLayout(myOutput,myPredictOutput){
