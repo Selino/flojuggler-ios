@@ -4,6 +4,7 @@ $("#list-page").on('pagebeforeshow', function(evt) {
 
 $("#edit-page").on('pageinit', function (evt) {
                    checkNameDateFields();
+                   
                    }).on('pagebeforehide', function(evt) {
                          updateEditPage();
                          //makeList();
