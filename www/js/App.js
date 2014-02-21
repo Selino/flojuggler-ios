@@ -160,6 +160,7 @@ function setEditBtnActions(){
                                           );
                          $.mobile.changePage('#edit-page', { transition: 'slide' });
                          }).on('swipeleft', function(event){
+                               $(this).addClass('ui-btn-active');
                                populateEditPage(
                                                 $(this).attr('data-id')
                                                 );
