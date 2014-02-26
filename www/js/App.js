@@ -6,7 +6,7 @@ lowLag.load("button-31.mp3",'btn-snd-1');
 lowLag.load("button-32.mp3",'btn-snd-2');
 lowLag.load("button-43.mp3",'btn-snd-3');
 
-$('[data-id=header] a,.ui-btn').on('tap', function(){
+$('[data-id=header] a,.ui-btn').on('click', function(){
                  lowLag.play('btn-snd-2');
                  });
 
@@ -24,21 +24,21 @@ $("#edit-page").on('pageinit', function (evt) {
                                $("#edit-form").show();
                                }).on('swiperight', swipeEditPage);
 
-$("#delete-button").on('tap', function() {
+$("#delete-button").on('click', function() {
                            var deleteName = $("#name").val();
                            $("#delete-popup-name").html(deleteName)
                            $("#popup-delete").popup('open');
                        });
 
-$("#list-page-button").on('tap', function() {
+$("#list-page-button").on('click', function() {
                        $.mobile.changePage( '#list-page', { transition: 'slide', reverse: true});
                        });
 
-$("#delete-popup-confirm-btn").on('tap', function() {
+$("#delete-popup-confirm-btn").on('click', function() {
                                   startDeleteFlo();
                                   });
 
-$(".thumbnail-button").on('tap', function() {
+$(".thumbnail-button").on('click', function() {
                           lowLag.play('btn-snd-1');
                           getPhoto(pictureSource.PHOTOLIBRARY);
                           });
@@ -49,7 +49,7 @@ $("input[type=text]").on("keypress", function(e) {
                          }
                          });
 
-$("#add-flo-btn").on('tap', function() {
+$("#add-flo-btn").on('click', function() {
                      createNewFlo();
                      });
 
@@ -180,7 +180,7 @@ function displayResultSet(){
 }
 
 function setEditBtnActions(){
-    $('.edit-button').on('tap', function(event){
+    $('.edit-button').on('click', function(event){
                          lowLag.play('btn-snd-1');
                          var that = $(this);
                          setEditBtnTap(that);
@@ -193,7 +193,7 @@ function setEditBtnActions(){
                                lowLag.play('btn-snd-3');
                                }).on('taphold', function(event){
                                     var oThat = $(this);
-                                    oThat.off('tap');
+                                    oThat.off('click');
 //                                    showCntrlArea(oThat);
                                     $(this).on("tap", function(){
                                                var that = $(this);
