@@ -62,15 +62,12 @@ img.thumbnail-button, img.thumbnail {
 img.thumbnail-button {
     height: $edit-thumbnail-size;
     width: $edit-thumbnail-size;
+    float: left;
 }
 
 img.thumbnail {
     vertical-align: middle;
     margin-right: .4em;
-}
-
-img.thumbnail-button {
-    float: left;
 }
 
 .ui-header {
@@ -88,7 +85,7 @@ img.thumbnail-button {
     margin: 0;
     border-radius: 0 !important;
     position: relative;
-
+    
     .status-text {
         font-size: .6em;
         margin-left: 4px;
@@ -97,19 +94,19 @@ img.thumbnail-button {
         left: 74px;
         font-weight: normal;
     }
-
+    
     .name-title {
         position: absolute;
         top: .7em;
         left: 76px;
         font-weight: bold;
     }
-
+    
     .info-area {
         position: relative;
         padding: .5em 0 .5em .4em;
     }
-
+    
     .crtl-area {
         display: none;
         height: 40px;
@@ -129,20 +126,22 @@ img.thumbnail-button {
     opacity:0.5;
 }
 
-.ui-field-contain:last-of-type {
-    border: none;
-}
-
-.ui-field-contain:last-of-type .ui-input-text input {
-    min-height: 1em !important;
-}
-
-.ui-field-contain:first-child .ui-input-text {
-    width: 12em;
-    float: left;
-    margin: 0 0 0 10px;
-    line-height: 1em;
-    padding-top: .8em;
+.ui-field-contain {
+    &:last-of-type {
+        border: none;
+    }
+    
+    &:last-of-type .ui-input-text input {
+        min-height: 1em !important;
+    }
+    
+    &:first-child .ui-input-text {
+        width: 12em;
+        float: left;
+        margin: 0 0 0 10px;
+        line-height: 1em;
+        padding-top: .8em;
+    }
 }
 
 .green-btn {
@@ -167,7 +166,7 @@ img.thumbnail-button {
 /* have to reset number types after jqm mods the dom */
 input[type=number], input[type=date] {
     font-size: 2em;
-
+    
 }
 
 /***** JQuery Mobile resetters ******/

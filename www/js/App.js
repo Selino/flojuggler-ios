@@ -1,3 +1,15 @@
+lowLag.init({
+            'urlPrefix':'audio/',
+            'debug':'none'
+            });
+lowLag.load("button-31.mp3",'btn-snd-1');
+lowLag.load("button-32.mp3",'btn-snd-2');
+lowLag.load("button-43.mp3",'btn-snd-3');
+
+$('[data-id=header] a,.ui-btn').on('click', function(){
+                 lowLag.play('btn-snd-2');
+                 });
+
 $("#list-page").on('pagebeforeshow', function(evt) {
                    makeList();
                    });
@@ -24,6 +36,7 @@ $("#delete-popup-confirm-btn").on('click', function() {
                                   });
 
 $(".thumbnail-button").on('click', function() {
+                          lowLag.play('btn-snd-1');
                           getPhoto(pictureSource.PHOTOLIBRARY);
                           });
 
@@ -45,6 +58,7 @@ $(document).on('slidestart', '#edit-form input[type=number]', function(){
 
 function swipeEditPage(){
     $.mobile.changePage( '#list-page', { transition: 'slide', reverse: true});
+    lowLag.play('btn-snd-3');
 }
 
 function onResume(){
@@ -147,7 +161,7 @@ function displayResultSet(){
 //            "<div class='crtl-area'>" +
 //            "<a href='#predict-page' data-icon='calendar' data-role='button' data-shadow='false' data-mini='true'>Predict</a>" +
 //            "</div>" +
-            "<div class='info-area'><image width='60' class='thumbnail' src='"+ row.thumbnail +"' />" +
+            "<div class='info-area snd-one'><image width='60' class='thumbnail' src='"+ row.thumbnail +"' />" +
             "<image class='carat' src='css/images/icons-svg/carat-l-black.svg' />" +
             "<span class='name-title'>" + truncateString(row.name, 13) + "</span>" +
             " <span class='status-text'>is "+ myFloStatus.text +"</span></div></div>";
@@ -164,6 +178,7 @@ function displayResultSet(){
 
 function setEditBtnActions(){
     $('.edit-button').on('tap', function(event){
+                         lowLag.play('btn-snd-1');
                          var that = $(this);
                          setEditBtnTap(that);
                          }).on('swipeleft', function(event){
@@ -172,6 +187,7 @@ function setEditBtnActions(){
                                                 $(this).attr('data-id')
                                                 );
                                $.mobile.changePage('#edit-page', { transition: 'slide' });
+                               lowLag.play('btn-snd-3');
                                }).on('taphold', function(event){
                                     var oThat = $(this);
                                     oThat.off('tap');
