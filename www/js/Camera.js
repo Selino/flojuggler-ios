@@ -1,5 +1,11 @@
-var pictureSource;
-var destinationType;
+"use strict";
+
+var pictureSource, destinationType;
+
+// Called if something bad happens.
+function onFail(message) {
+    console.log('Failed because: ' + message);
+}
 
 // Called when a photo is successfully retrieved
 function onPhotoDataSuccess(imageData) {
@@ -8,7 +14,6 @@ function onPhotoDataSuccess(imageData) {
 
 // Called when a photo is successfully retrieved
 function onPhotoURISuccess(imageURI) {
-    console.log(imageURI);
     FileIO.updateCameraImages(imageURI);
 }
 
@@ -26,16 +31,13 @@ function capturePhotoEdit() {
                                 destinationType: destinationType.DATA_URL });
 }
 
-// Called if something bad happens.
-function onFail(message) {
-    console.log('Failed because: ' + message);
-}
-
 function getPhoto(source) {
     // Retrieve image file location from specified source
-    navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-                                destinationType: destinationType.FILE_URI,
-                                saveToPhotoAlbum: false,
-                                sourceType: source,
-                                allowEdit: true });
+    navigator.camera.getPicture(onPhotoURISuccess, onFail, {
+        quality: 50,
+        destinationType: destinationType.FILE_URI,
+        saveToPhotoAlbum: false,
+        sourceType: source,
+        allowEdit: true
+    });
 }

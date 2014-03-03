@@ -245,6 +245,7 @@ $.fn.extend({
     }
 });
 
+//initializers
 lowLag.init({
     'urlPrefix': 'audio/',
     'debug': 'none'

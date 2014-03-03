@@ -1,9 +1,8 @@
-var gImageURI = '';
-var gFileSystem = {};
+var gImageURI = '', gFileSystem = {};
 
 var FileIO = {
 
-    gotFS : function(fileSystem) {
+    gotFS : function (fileSystem) {
         gFileSystem = fileSystem;
     },
 
@@ -21,11 +20,11 @@ var FileIO = {
         updateImageSrc(fileEntry.fullPath);
     },
 
-    removeDeletedImage : function(imageURI){
+    removeDeletedImage : function (imageURI) {
         window.resolveLocalFileSystemURI(imageURI, FileIO.removeFile, FileIO.errorHandler);
     },
 
-    removeFile : function(fileEntry){
+    removeFile : function(fileEntry) {
         fileEntry.remove();
     },
 
