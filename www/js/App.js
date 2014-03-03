@@ -213,26 +213,25 @@ function onResume() {
 
 //JQuery helpers
 $.fn.extend({
-    nocacheImg : function(){
-        return this.each(function(){
+    nocacheImg : function () {
+        return this.each(function () {
             var myNow = new Date().getTime();
             this.src = this.src + "?localtime=" + myNow;
         });
     },
             
-    resetForm : function(){
+    resetForm : function () {
         this[0].reset();
     },
             
-    stringifyForm : function(){
-        var myData = JSON.stringify(this.serializeForm())
+    stringifyForm : function () {
+        var myData = JSON.stringify(this.serializeForm());
         return myData;
     },
     
-    serializeForm : function(){
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function() {
+    serializeForm : function () {
+        var o = {}, a = this.serializeArray();
+        $.each(a, function () {
             if (o[this.name] !== undefined) {
                 if (!o[this.name].push) {
                     o[this.name] = [o[this.name]];
@@ -264,44 +263,44 @@ $("#list-page").on('pagebeforeshow', function (evt) {
 
 $("#edit-page").on('pageinit', function (evt) {
     checkNameDateFields();
-}).on('pagebeforehide', function(evt) {
+}).on('pagebeforehide', function (evt) {
     updateEditPage();
-}).on('pagebeforeshow', function(evt) {
+}).on('pagebeforeshow', function (evt) {
     updateEditPage();
     $("#edit-form").show();
 }).on('swiperight', swipeEditPage);
 
-$("#delete-button").on('click', function() {
+$("#delete-button").on('click', function () {
     var deleteName = $("#name").val();
-    $("#delete-popup-name").html(deleteName)
+    $("#delete-popup-name").html(deleteName);
     $("#popup-delete").popup('open');
 });
 
-$("#list-page-button").on('click', function() {
-    $.mobile.changePage( '#list-page', { transition: 'slide', reverse: true});
+$("#list-page-button").on('click', function () {
+    $.mobile.changePage('#list-page', { transition: 'slide', reverse: true});
 });
 
-$("#delete-popup-confirm-btn").on('click', function() {
+$("#delete-popup-confirm-btn").on('click', function () {
     startDeleteFlo();
 });
 
-$(".thumbnail-button").on('click', function() {
+$(".thumbnail-button").on('click', function () {
     lowLag.play('btn-snd-1');
     getPhoto(pictureSource.PHOTOLIBRARY);
 });
 
-$("input[type=text]").on("keypress", function(e) {
+$("input[type=text]").on("keypress", function (e) {
     if(e.which === 13) {
         this.blur();
     }
 });
 
-$("#add-flo-btn").on('click', function() {
+$("#add-flo-btn").on('click', function () {
     createNewFlo();
 });
 
-$('#edit-page').on('slidestart', '#edit-form input[type=number]', function() {
+$('#edit-page').on('slidestart', '#edit-form input[type=number]', function () {
     $("#edit-page").addClass('swap-off');
-}).on('slidestop', '#edit-form input[type=number]', function() {
+}).on('slidestop', '#edit-form input[type=number]', function () {
     $("#edit-page").removeClass('swap-off');
 });
