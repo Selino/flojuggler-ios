@@ -1,9 +1,8 @@
-gCurrentFlo = 'reset';
-currentTime = new Date().getTime();
+var gCurrentFlo = 'reset', currentTime = new Date().getTime();
 
 var Flos = {
     
-    helloWorld : function(){
+    helloWorld : function () {
         return ("Hello flos!");
     },
 
@@ -11,11 +10,11 @@ var Flos = {
         Model.deleteFlo(id);
     },
 
-    initFlos : function(tx,rs,test) {
+    initFlos : function (tx, rs, test) {
          gCurrentFlo = 'reset';
         globalFlos = [];
         if (rs.rows.length >= 1) {
-            for(i=0; i < rs.rows.length; i++) {
+            for (i = 0; i < rs.rows.length; i = i + 1) {
                 var row = rs.rows.item(i);
                 globalFlos.push(row);
             }
@@ -27,17 +26,17 @@ var Flos = {
         return globalFlos;
     },
 
-    detectFlo : function(time,startDate,cycle){
-        var myTime = new Date(time).getTime();
-        var myDate = new Date(startDate).getTime();
-        var status = ( secToDays(myTime) - secToDays(myDate) ) % (cycle);
+    detectFlo : function (time, startDate, cycle) {
+        var myTime = new Date(time).getTime(),
+            myDate = new Date(startDate).getTime(),
+            status = (secToDays(myTime) - secToDays(myDate)) % (cycle);
         return status;
     },
 
-    getStatus : function(time,startDate,cycle,long) {
-        var flo = Flos.detectFlo(time,startDate,cycle);
-        var sDayDisplay = " days";
-        var floStatus = {};
+    getStatus : function (time, startDate, cycle, long) {
+        var flo = Flos.detectFlo(time, startDate, cycle),
+            sDayDisplay = " days",
+            floStatus = {};
         
         if (flo < long) {
             var days = long - flo;
@@ -58,4 +57,4 @@ var Flos = {
         }
         return floStatus;
     }
-}
+};
